@@ -31,12 +31,19 @@ public class CyberFlixMovieDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		//response.setContentType("text/html");
+		//PrintWriter out = response.getWriter();
 		String filmTitle = request.getParameter("film_title");
 		Film myFilm = DataSource.findFilmByTitle(filmTitle).get(0);
 		
-		out.append("detail page for " + myFilm.getTitle());
+		//out.append("detail page for " + myFilm.getTitle());
+		
+		// pass the list of films that matched the search query
+		request.setAttribute("film", myFilm);
+				 
+				// forward this request to the following jsp page
+		request.getRequestDispatcher("moviedetailpage.jsp").
+			forward(request,  response);
 		/*
 		out.append(HTMLTags.HTML_HEADER_START)
 		   .append(HTMLTags.TITLE_START + filmTitle + HTMLTags.TITLE_END)

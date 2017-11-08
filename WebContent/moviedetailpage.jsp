@@ -7,18 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="http://localhost:8080/CyberFlixOne/styles.css">
-<title>CyberFlix Search Results</title>
+<title><c:out value="${film.getTitle()}"/></title>
+<c:set var="film" value = "${requestScope.film}"/>
 </head>
 <body>
 <div class="w3-container">
 <div class="w3-center">
-<h1>Movies Matching Your Search</h1>
-<p>Select one of the choices below to see some more detailed info.</p>
+<h1>Movie Details</h1>
 <hr>
 </div>
-<c:forEach var="film" items="${requestScope.films}">
-<%-- the anchor tag is set to display: block in CSS so it's OK to wrap this DIV --%>
-<a href="${requestScope.detailServlet}?film_title=${film.getTitle()}">
 <div class="w3-card-4 search-result">
 <img 
 	class="cover-image"
@@ -32,8 +29,6 @@
 <br>
 <div class="result-desc"><c:out value="${film.getDescription()}"/></div>
 </div>
-</a>
-</c:forEach>
 </div>
 </body>
 </html>

@@ -50,7 +50,7 @@ public class CyberFlixServlet extends HttpServlet {
 		 
 		// forward this request to the following jsp page
 		request.getRequestDispatcher("moviesearchresults.jsp").
-		   forward(request,  response);
+			forward(request,  response);
 				
 		// response.setContentType("text/html");
 		// PrintWriter out = response.getWriter();
