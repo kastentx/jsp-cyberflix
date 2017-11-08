@@ -7,22 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="http://localhost:8080/CyberFlixOne/styles.css">
+<jsp:useBean id="random" class="edu.txstate.cs3320.kasten.RandomBean" scope="application" />
 <title>CyberFlix Search Results</title>
 </head>
 <body>
-<div class="w3-container">
-<div class="w3-center">
+<div class="w3-center w3-teal title-bar">
 <h1>Movies Matching Your Search</h1>
 <p>Select one of the choices below to see some more detailed info.</p>
 <hr>
 </div>
 <c:forEach var="film" items="${requestScope.films}">
 <%-- the anchor tag is set to display: block in CSS so it's OK to wrap this DIV --%>
-<a href="${requestScope.detailServlet}?film_title=${film.getTitle()}">
-<div class="w3-card-4 search-result">
+<c:set var ="cover_image" scope="session" value="${random.nextInt % 9}"/>
+<a href="${requestScope.detailServlet}?film_title=${film.getTitle()}&cover_image=${cover_image}">
+<div class="w3-card-4 search-result w3-hover-light-blue">
 <img 
 	class="cover-image"
-	src="http://localhost:8080/CyberFlixOne/images/jurassicpark.jpg" 
+	src="http://localhost:8080/CyberFlixOne/images/${cover_image}${'.jpg'}"
 	alt="${film.title}" 
 />
 <h3><c:out value="${film.getTitle()}"/></h3>
@@ -30,10 +31,10 @@
 <div class="result-detail"><b>Rating: </b><c:out value="${film.getRating()}"/></div>
 <div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
 <br>
+
 <div class="result-desc"><c:out value="${film.getDescription()}"/></div>
 </div>
 </a>
 </c:forEach>
-</div>
 </body>
 </html>

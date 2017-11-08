@@ -34,12 +34,16 @@ public class CyberFlixMovieDetailServlet extends HttpServlet {
 		//response.setContentType("text/html");
 		//PrintWriter out = response.getWriter();
 		String filmTitle = request.getParameter("film_title");
+		String filmCover = request.getParameter("cover_image");
 		Film myFilm = DataSource.findFilmByTitle(filmTitle).get(0);
 		
 		//out.append("detail page for " + myFilm.getTitle());
 		
 		// pass the list of films that matched the search query
 		request.setAttribute("film", myFilm);
+		
+		// keep the same cover from the search results
+		request.setAttribute("cover", filmCover);
 				 
 				// forward this request to the following jsp page
 		request.getRequestDispatcher("moviedetailpage.jsp").

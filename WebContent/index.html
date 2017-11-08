@@ -2,17 +2,23 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="http://localhost:8080/CyberFlixOne/styles.css">
 <title>CyberFlix</title>
 </head>
 <body>
-<h1> Welcome to CyberFlix!</h1>
-<h2> Let's Find You a Movie! </h2>
-<p>
-<p>
-
+<div class="w3-center main">
+<div class="title-bar w3-teal">
+<h1>Welcome to CyberFlix!</h1>
+<h3>Let's Find You a Movie!</h3>
+<hr>
+</div>
+<div class="w3-card-2 search-card w3-light-blue">
 <form action="http://localhost:8080/CyberFlixOne/CyberFlixServlet" method="get">
-  Film Title: <input type="text" name="film_title"><br>
-  <input type="submit" value="Submit">
+<b>Film Title: </b><input type="text" name="film_title">
+<input type="submit" value="Submit">
 </form>
+</div>
+</div>
 </body>
 </html>

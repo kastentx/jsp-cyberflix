@@ -11,15 +11,14 @@
 <c:set var="film" value = "${requestScope.film}"/>
 </head>
 <body>
-<div class="w3-container">
-<div class="w3-center">
+<div class="w3-center w3-teal title-bar">
 <h1>Movie Details</h1>
 <hr>
 </div>
-<div class="w3-card-4 search-result">
+<div class="w3-card-4 detail-card w3-light-blue">
 <img 
-	class="cover-image"
-	src="http://localhost:8080/CyberFlixOne/images/jurassicpark.jpg" 
+	class="detail-image"
+	src="http://localhost:8080/CyberFlixOne/images/${requestScope.cover}${'.jpg'}"
 	alt="${film.title}" 
 />
 <h3><c:out value="${film.getTitle()}"/></h3>
@@ -28,7 +27,6 @@
 <div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
 <br>
 <div class="result-desc"><c:out value="${film.getDescription()}"/></div>
-</div>
 </div>
 </body>
 </html>
