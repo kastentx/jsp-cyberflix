@@ -8,9 +8,8 @@
 <title>CyberFlix Search Results</title>
 </head>
 <body>
-<% out.println(request.getAttribute("films")); %>
-<c:forEach var = "i" begin = "1" end = "5">
-         Item <c:out value = "${i}"/><p>
+<c:forEach var="film" items="${requestScope.films}" >
+<p><c:out value = "${film.title}"/><p>
 </c:forEach>
 </body>
 </html>
