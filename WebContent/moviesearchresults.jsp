@@ -17,8 +17,8 @@
 <hr>
 </div>
 <c:forEach var="film" items="${requestScope.films}">
-<a href="${requestScope.detailServlet}">
 <div class="w3-card-4 search-result">
+<a href="${requestScope.detailServlet}?film_title=${film.getTitle()}">
 <img 
 	class="cover-image"
 	src="http://localhost:8080/CyberFlixOne/images/jurassicpark.jpg" 
@@ -30,8 +30,8 @@
 <div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
 <br>
 <div class="result-desc"><c:out value="${film.getDescription()}"/></div>
-</div>
 </a>
+</div>
 </c:forEach>
 </div>
 </body>

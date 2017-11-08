@@ -33,10 +33,10 @@ public class CyberFlixMovieDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		//String filmTitle = request.getParameter("film_title");
-		//Film myFilm = DataSource.findFilmByTitle(filmTitle).get(0);
+		String filmTitle = request.getParameter("film_title");
+		Film myFilm = DataSource.findFilmByTitle(filmTitle).get(0);
 		
-		out.append("detail page");
+		out.append("detail page for " + myFilm.getTitle());
 		/*
 		out.append(HTMLTags.HTML_HEADER_START)
 		   .append(HTMLTags.TITLE_START + filmTitle + HTMLTags.TITLE_END)
