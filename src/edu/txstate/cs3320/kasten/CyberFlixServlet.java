@@ -40,10 +40,22 @@ public class CyberFlixServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 		List<Film> foundFilms = DataSource.findFilmByTitle(request.getParameter("film_title"));
-
+		
+		request.setAttribute("detailServlet",  
+				  "http://localhost:8080/CyberFlixOne/CyberFlixMovieDetailServlet");
+				 
+		// pass the list of films that matched the search query
+		request.setAttribute("films", foundFilms);
+		 
+		// forward this request to the following jsp page
+		request.getRequestDispatcher("moviesearchresults.jsp").
+		   forward(request,  response);
+				
+		// response.setContentType("text/html");
+		// PrintWriter out = response.getWriter();
+				
+		/*
 		// this heading displays at the top of the page, regardless of results
 		out.append(HTMLTags.HTML_HEADER_START)
 		   .append(HTMLTags.TITLE_START + "Search Results" + HTMLTags.TITLE_END)
@@ -66,6 +78,7 @@ public class CyberFlixServlet extends HttpServlet {
 		}
 		// this closes out our HTML, regardless of results
 		out.append(HTMLTags.BODY_END + HTMLTags.HTML_END);
+		*/
 	}
 
 	/**
