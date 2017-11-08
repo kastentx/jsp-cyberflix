@@ -11,23 +11,27 @@
 </head>
 <body>
 <div class="w3-container">
+<div class="w3-container w3-center">
 <h1>Movies Matching Your Search</h1>
 <p>Select one of the choices below to see some more detailed info.</p>
 <hr>
+</div>
 <c:forEach var="film" items="${requestScope.films}">
+<a href="${requestScope.detailServlet}">
 <div class="w3-card-4 search-result">
 <img 
 	class="cover-image"
 	src="http://localhost:8080/CyberFlixOne/images/jurassicpark.jpg" 
 	alt="${film.title}" 
 />
-<h4><c:out value="${film.getTitle()}"/></h4>
-<div><b>Year: </b><c:out value="${film.getReleaseYear()}"/></div>
-<div><b>Rating: </b><c:out value="${film.getRating()}"/></div>
-<div><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
+<h3><c:out value="${film.getTitle()}"/></h3>
+<div class="result-detail"><b>Year: </b><c:out value="${film.getReleaseYear()}"/></div>
+<div class="result-detail"><b>Rating: </b><c:out value="${film.getRating()}"/></div>
+<div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
 <br>
-<div><c:out value="${film.getDescription()}"/></div>
+<div class="result-desc"><c:out value="${film.getDescription()}"/></div>
 </div>
+</a>
 </c:forEach>
 </div>
 </body>
