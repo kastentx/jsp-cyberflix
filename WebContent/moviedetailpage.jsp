@@ -8,14 +8,14 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="http://localhost:8080/CyberFlixOne/styles.css">
 <title><c:out value="${film.getTitle()}"/></title>
-<c:set var="film" value = "${requestScope.film}"/>
+<c:set var="film" value ="${requestScope.film}"/>
 </head>
 <body>
 <div class="w3-center w3-teal title-bar">
 <h1>Movie Details</h1>
 <hr>
 </div>
-<div class="w3-card-4 detail-card w3-light-blue">
+<div class="w3-card-4 detail-card w3-cyan">
 <img 
 	class="detail-image"
 	src="http://localhost:8080/CyberFlixOne/images/${requestScope.cover}${'.jpg'}"
@@ -25,6 +25,14 @@
 <div class="result-detail"><b>Year: </b><c:out value="${film.getReleaseYear()}"/></div>
 <div class="result-detail"><b>Rating: </b><c:out value="${film.getRating()}"/></div>
 <div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
+<div class="result-detail"><b>Actors: </b>
+<c:if test="${film.getActors().size() == 0}">
+None listed for this film.
+</c:if>
+<c:forEach var="actor" items="${film.getActors()}">
+<c:out value="${actor.getFirstName()} ${actor.getLastName()},"/>
+</c:forEach>
+</div>
 <br>
 <div class="result-desc"><c:out value="${film.getDescription()}"/></div>
 </div>

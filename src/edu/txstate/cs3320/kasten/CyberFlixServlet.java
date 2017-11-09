@@ -1,7 +1,6 @@
 package edu.txstate.cs3320.kasten;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import edu.txstate.internet.cyberflix.data.film.Film;
 import edu.txstate.internet.cyberflix.data.DataSource;
 import edu.txstate.internet.cyberflix.utils.ServletUtils;
-import edu.txstate.internet.cyberflix.utils.HTMLTags;
 
 /**
  * Servlet implementation class CyberFlixServlet
@@ -51,34 +49,6 @@ public class CyberFlixServlet extends HttpServlet {
 		// forward this request to the following jsp page
 		request.getRequestDispatcher("moviesearchresults.jsp").
 			forward(request,  response);
-				
-		// response.setContentType("text/html");
-		// PrintWriter out = response.getWriter();
-				
-		/*
-		// this heading displays at the top of the page, regardless of results
-		out.append(HTMLTags.HTML_HEADER_START)
-		   .append(HTMLTags.TITLE_START + "Search Results" + HTMLTags.TITLE_END)
-		   .append(HTMLTags.HTML_HEADER_END + HTMLTags.BODY_START)
-		   .append("\n\n<h1>Search Results:</h1>\n");
-		if (foundFilms != null) {
-			// this list only displays if there were movies found
-			out.append(HTMLTags.UNORDERED_LIST_START);
-			for (Film aFilm : foundFilms) {
-				out.append(HTMLTags.LIST_ITEM_START)
-				   .append(HTMLTags.createHTMLLinkToFile("CyberFlixMovieDetailServlet?film_title=" + aFilm.getTitle(), aFilm.getTitle()))
-				   .append("<i> (" + aFilm.getReleaseYear() + ") </i>")
-				   .append(aFilm.getDescription() + "<br><br>")
-				   .append(HTMLTags.LIST_ITEM_END);
-			}
-			out.append(HTMLTags.UNORDERED_LIST_END);
-		} else {
-			// this message only displays when no movies are found
-			out.append("<h3>No films matching your search criteria..</h3>");
-		}
-		// this closes out our HTML, regardless of results
-		out.append(HTMLTags.BODY_END + HTMLTags.HTML_END);
-		*/
 	}
 
 	/**

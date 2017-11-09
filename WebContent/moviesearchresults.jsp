@@ -20,7 +20,7 @@
 <%-- the anchor tag is set to display: block in CSS so it's OK to wrap this DIV --%>
 <c:set var ="cover_image" scope="session" value="${random.nextInt % 9}"/>
 <a href="${requestScope.detailServlet}?film_title=${film.getTitle()}&cover_image=${cover_image}">
-<div class="w3-card-4 search-result w3-hover-light-blue">
+<div class="w3-card-4 search-result w3-light-blue w3-hover-cyan">
 <img 
 	class="cover-image"
 	src="http://localhost:8080/CyberFlixOne/images/${cover_image}${'.jpg'}"

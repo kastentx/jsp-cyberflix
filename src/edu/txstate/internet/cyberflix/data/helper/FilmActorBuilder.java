@@ -24,6 +24,8 @@ public class FilmActorBuilder {
 			if ((anActor != null) && (aFilm != null)) {
 				aFilm.addActor(anActor);
 				anActor.addFilm(aFilm);
+				// debugging
+				System.out.println("adding " + anActor.getFirstName() + " " + anActor.getLastName() + " to " + aFilm.getTitle());
 			//	String actorName = anActor.getFirstName() + " " + anActor.getLastName();
 			//	String filmTitle = aFilm.getTitle();
 			} else {
