@@ -31,10 +31,12 @@
 <div class="result-detail"><b>Rating: </b><c:out value="${film.getRating()}"/></div>
 <div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
 <br>
-
 <div class="result-desc"><c:out value="${film.getDescription()}"/></div>
 </div>
 </a>
 </c:forEach>
+<c:if test="${requestScope.films == null}">
+<h4 class="w3-center">No films found for your search.</h4>
+</c:if>
 </body>
 </html>
