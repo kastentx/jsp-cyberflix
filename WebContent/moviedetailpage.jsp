@@ -24,7 +24,7 @@
 <h3><c:out value="${film.getTitle()}"/></h3>
 <div class="result-detail"><b>Year: </b><c:out value="${film.getReleaseYear()}"/></div>
 <div class="result-detail"><b>Rating: </b><c:out value="${film.getRating()}"/></div>
-<div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/></div>
+<div class="result-detail"><b>Running Time: </b><c:out value="${film.getLength()}"/> mins</div>
 <div class="result-detail"><b>Actors: </b>
 <c:if test="${film.getActors().size() == 0}">
 None listed for this film.
