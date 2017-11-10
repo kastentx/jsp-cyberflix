@@ -33,10 +33,10 @@ public class CyberFlixMovieDetailServlet extends HttpServlet {
 		String filmCover = request.getParameter("cover_image");
 		Film myFilm = DataSource.findFilmByTitle(filmTitle).get(0);
 			
-		// pass the list of films that matched the search query
+		// pass the correct film object to the detail view
 		request.setAttribute("film", myFilm);
 		
-		// keep the same cover from the search results
+		// display the correct cover in the detail view
 		request.setAttribute("cover", filmCover);
 				 
 		// forward this request to the following jsp page

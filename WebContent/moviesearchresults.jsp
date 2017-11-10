@@ -17,7 +17,7 @@
 <hr>
 </div>
 <c:forEach var="film" items="${requestScope.films}">
-<%-- the anchor tag is set to display: block in CSS so it's OK to wrap this DIV --%>
+<%-- the anchor tag is set to display: block in CSS so it's OK to wrap this DIV with it --%>
 <c:set var ="cover_image" scope="session" value="${random.nextInt % 9}"/>
 <a href="${requestScope.detailServlet}?film_title=${film.getTitle()}&cover_image=${cover_image}">
 <div class="w3-card-4 search-result w3-light-blue w3-hover-cyan">
